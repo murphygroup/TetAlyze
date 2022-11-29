@@ -1,0 +1,17 @@
+Anterior Area (um^2): 502.103065
+# Anterior BBs: 128
+Medial Area (um^2): 1582.637597
+# Medial BBs: 309
+Posterior Area (um^2): 601.307813
+# Posterior BBs: 104
+# identified BBs: 541
+# assigned BBs: 541
+# BB rows: 20
+Avergae number of BBs per row: 27.050
+Cell height(um): 47.519
+Cell widths(um): 27.467, 15.105
+Cell volume(um^3): 7473.927
+VolumeDeficit: 0.276
+Average neighbor BB pairwise distance(um) (anterior, medial, posterior): 1.770, 1.675, 2.505
+Average BB row pairwise distance(um) (anterior, medial, posterior): 1.877, 2.986, 2.256
+Mean and standard deviation of ciliary row lengths: 46.283, 4.454

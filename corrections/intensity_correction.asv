@@ -1,0 +1,56 @@
+%%  intensity correction
+
+
+%% parameters
+rejection_threshold = 3;  % 0.5 (strong rejection) - 3 (weak rejection) for WT or big1 without concaves, 3-7 for Big 1 with concaves
+minBBsInRow = 3; % Rows with fewer BBs than this value will be discarded.
+minRowLength = 0; % Threshold for BB row length.
+
+
+% path to the folder contains images and processed resutls
+% e.g.
+% /Users/lisamitchell/Documents/Pearson Lab Stuff/02052021 Poc1-mChy Cell Tag n=1/B1868 t=0
+%   |--A.tif
+%   |--A/...processed results
+%   |--B.tif
+%   |--B/...processed results
+%   |--C.tif
+%   |--C/...processed result
+
+path = ''
+log_path = fullfile(path, 'log.txt')
+
+log = fopen(log_path,'r');
+log_content = textscan(log,'%s\n'); 
+log_content = log_content{1};
+fclose(log);
+
+log = fopen(log_path,'a');
+c = filesep;
+D = dir(path);
+for k = 3:length(D) % avoid using the first ones
+    currD = D(k).name;
+    if contains(currD, '.tif')
+        tempPath = strrep(fullfile(path, currD(1:end-4)), '.', '-');
+%         tempPath = strcat(tempPath, c);
+        if ~isfolder(tempPath)
+            continue
+        end
+        temp_str = strrep(currD, ' ', '-');
+           temp_str = strrep(temp_str, '.', '-');
+        if ~any(strcmp(log_content, temp_str))
+            
+            subD = dir(tempPath); % Get the file list in the subdirectory
+            filename = fullfile(path, currD(1:end));
+            resultFolderPath = strrep(filename(1: end-4), '.', '-');
+            I = readBioImg(filename, 1,1);
+            I2 = mat2gray(I);
+
+            correction(I2, rejection_threshold, true, minBBsInRow, minRowLength, resultFolderPath, c, I);
+
+            fprintf(log, temp_str);
+            fprintf(log, '\n');
+        end
+    end
+    
+end
