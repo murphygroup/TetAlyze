@@ -22,3 +22,9 @@ no greater BBs than this value will be discarded.
 the row indexing if necessary. When the Figure 2 window firstly promoted, please enter
 the current index of the real first index and press `Enter` to correct the index. If the current
 index is correct, enter nothing and hit Enter to continue. 
+
+Image processing was done on a desktop computer with a Core i9-10900K CPU @ 3.70GHz and 64 GB of RAM, running a Windows 11 operating system. The software was tested on MATLAB 2020b.
+
+Image were stored in uint16 TIFF format.
+
+For an image with 500x500x75 pixels, it typically takes about 2 minutes to finish image processing.
