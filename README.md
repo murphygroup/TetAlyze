@@ -40,6 +40,7 @@ Required toolbox:
 
 - Wavelet Toolbox
 
+Note that we include MATLAB Bio-Formats and Locally Weighted Polynomials toolbox packages in our repo here, and we thank the authors for developing those tools.
 
 Images were stored in uint16 TIFF format.
 
