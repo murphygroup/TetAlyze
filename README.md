@@ -42,6 +42,6 @@ Required toolbox:
 
 Note that we include MATLAB Bio-Formats and Locally Weighted Polynomials toolbox packages in our repo here, and we thank the authors for developing those tools.
 
-Images were stored in uint16 TIFF format.
+Images were 3D image stacks and stored in uint16 TIFF format with only one channel. 
 
 For an image with 500x500x75 pixels, it typically takes about 2 minutes to finish image processing.
